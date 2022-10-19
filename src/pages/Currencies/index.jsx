@@ -37,7 +37,7 @@ export default function Currencies() {
   const [listOfComments, setListOfComments] = useState([]);
 
   useEffect(()=>{
-    axios.get(`http://localhost:3001/comments/byCrypto/${crypto}`).then((response)=>{
+    axios.get(`https://crypto-stats-viihuugo.herokuapp.com/comments/byCrypto/${crypto}`).then((response)=>{
       setListOfComments(response.data);
     })
   }, [])
@@ -54,7 +54,7 @@ export default function Currencies() {
 
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/comments", {
+    axios.post("https://crypto-stats-viihuugo.herokuapp.com/comments", {
         commentsText: `${data.commentsText}`,
         crypto: `${crypto}`,
       },
@@ -82,7 +82,7 @@ const validationSchema = Yup.object().shape({
  
 
 const deleteComment = (id)=>{
-  axios.delete(`http://localhost:3001/comments/${id}`, {
+  axios.delete(`https://crypto-stats-viihuugo.herokuapp.com/comments/${id}`, {
     headers: { acessToken: localStorage.getItem("acessToken") },
   }).then(()=>{
       setListOfComments(

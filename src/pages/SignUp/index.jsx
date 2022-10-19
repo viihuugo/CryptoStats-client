@@ -20,7 +20,7 @@ export default function SignUp() {
       let navigate = useNavigate();
     
       const onSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then(() => {
+        axios.post("https://crypto-stats-viihuugo.herokuapp.com/auth", data).then(() => {
           navigate("/login")
         });
       };

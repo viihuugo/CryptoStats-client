@@ -18,11 +18,11 @@ export default function Profile() {
     
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/auth/basicInfo/${id}`).then((response) => {
+        axios.get(`https://crypto-stats-viihuugo.herokuapp.com/auth/basicInfo/${id}`).then((response) => {
           setUsername(response.data.username);
         });
 
-        axios.get(`http://localhost:3001/comments/byuserId/${id}`).then((response) => {
+        axios.get(`https://crypto-stats-viihuugo.herokuapp.com/comments/byuserId/${id}`).then((response) => {
           setListOfComments(response.data);
         });
     
@@ -30,7 +30,7 @@ export default function Profile() {
 
 
     const deleteComment = (id)=>{
-      axios.delete(`http://localhost:3001/comments/${id}`, {
+      axios.delete(`https://crypto-stats-viihuugo.herokuapp.com/comments/${id}`, {
         headers: { acessToken: localStorage.getItem("acessToken") },
       }).then(()=>{
         setListOfComments(

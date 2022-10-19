@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/auth/auth", {
+      .get("https://crypto-stats-viihuugo.herokuapp.com/auth/auth", {
         headers: {
           acessToken: localStorage.getItem("acessToken"),
         },
